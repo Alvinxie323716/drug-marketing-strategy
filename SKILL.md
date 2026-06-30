@@ -410,3 +410,50 @@ python <技能目录>/scripts/drug_json_runner.py \
 - **医药行业落地配比（经验值，非硬数据）**：达人矩阵各层占比、各阶段预算倾斜比例——来自行业惯例与本技能样例数据的经验区间，**不是权威指标**，落地需按品类/阶段/预算调整。报告中给出此类数字时应说明是「建议配比」而非定论。
 
 > 参考来源：维基百科 [AIDA](https://en.wikipedia.org/wiki/AIDA_(marketing))、[Purchase funnel](https://en.wikipedia.org/wiki/Purchase_funnel)、[Influencer marketing](https://en.wikipedia.org/wiki/Influencer_marketing)、[DTC advertising](https://en.wikipedia.org/wiki/Direct-to-consumer_advertising)、[Customer experience/CDJ](https://en.wikipedia.org/wiki/Customer_experience)、[小红书](https://zh.wikipedia.org/wiki/小红书)、[抖音](https://zh.wikipedia.org/wiki/抖音)、[知乎](https://zh.wikipedia.org/wiki/知乎)。平台数据多为词条所述时点，投放前宜核实最新口径。
+
+---
+
+## 安装与更新（面向使用者）
+
+本技能通过 GitHub 上的 Claude Code plugin marketplace 分发，仓库地址：
+`https://github.com/Alvinxie323716/drug-marketing-strategy`
+
+### 一、安装（Claude Code）
+
+在 Claude Code 里依次执行：
+
+```
+/plugin marketplace add Alvinxie323716/drug-marketing-strategy
+/plugin install drug-marketing-strategy@alvinxie-skills
+```
+
+安装后重启 Claude Code（或执行 `/reload-plugins`）即可生效。
+
+### 二、开启自动更新（重要，需手动开一次）
+
+第三方市场默认**关闭**自动更新，需使用者手动开启一次：
+
+1. 输入 `/plugin` 打开菜单
+2. 进入 **Marketplaces** 标签
+3. 选中 `alvinxie-skills`
+4. 选择 **Enable auto-update**
+
+开启后，每次启动 Claude Code 会自动拉取最新版，并提示 `/reload-plugins` 应用更新。
+
+> 若不想开自动更新，也可随时手动更新：
+> `/plugin marketplace update alvinxie-skills` 然后 `/reload-plugins`
+
+### 三、发布新版（面向作者）
+
+技能内容改动后，只需推送到 GitHub：
+
+```
+git add -A && git commit -m "更新说明" && git push
+```
+
+`plugin.json` 中 `version` 字段留空，Claude Code 会按每个 commit 自动判定为新版本——**无需手动改版本号**。已开启自动更新的使用者下次启动即可收到。
+
+### 四、其它运行环境
+
+- **Joyclaw 平台**：通过 Joyclaw 自己的技能市场上架分发，更新方式为重新安装最新版（不读取 `.claude-plugin/` 清单）。
+- **纯手动**：直接 `git clone` 本仓库到 skills 目录，更新即 `git pull`。
