@@ -1,0 +1,14 @@
+{
+  "name": "alvinxie-skills",
+  "description": "Alvinxie 的技能市场，收录药品社媒投放策略等分析类技能。",
+  "owner": {
+    "name": "Alvinxie323716"
+  },
+  "plugins": [
+    {
+      "name": "drug-marketing-strategy",
+      "source": "./",
+      "description": "药品社媒投放策略分析：输入药品名，输出完整的社媒投放策略报告。"
+    }
+  ]
+}
